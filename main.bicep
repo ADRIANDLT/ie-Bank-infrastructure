@@ -7,7 +7,7 @@ param environmentType string = 'nonprod'
 @sys.description('The PostgreSQL Server name')
 @minLength(3)
 @maxLength(24)
-param postgreSQLServerName string = 'ie-bank-db-server-dev'
+param postgreSQLServerName string = 'adelatorre-dbsrv-dev'
 @sys.description('The PostgreSQL Database name')
 @minLength(3)
 @maxLength(24)
