@@ -39,11 +39,16 @@ jobs:
     - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      # List Resource Groups
+    - name: List Resource Groups
+      run: az group list --subscription ${{ env.SUBSCRIPTION_ID_DEV }}
 
       # Deploy Bicep file
     - name: deploy
       uses: azure/arm-deploy@v1
       with:
+        scope: resourcegroup
         subscriptionId: ${{ env.SUBSCRIPTION_ID_DEV }}
         resourceGroupName: ${{ env.RESOURCE_GROUP_DEV }}
         template: ./main.bicep
