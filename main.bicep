@@ -11,11 +11,11 @@ param postgreSQLServerName string = 'adelatorre-dbsrv-dev'
 @sys.description('The PostgreSQL Database name')
 @minLength(3)
 @maxLength(24)
-param postgreSQLDatabaseName string = 'ie-bank-db'
+param postgreSQLDatabaseName string = 'adelatorre-db-dev'
 @sys.description('The App Service Plan name')
 @minLength(3)
 @maxLength(24)
-param appServicePlanName string = 'adelatorre-app-sp-dev'
+param appServicePlanName string = 'adelatorre-asp-dev'
 @sys.description('The Web App name (frontend)')
 @minLength(3)
 @maxLength(24)
