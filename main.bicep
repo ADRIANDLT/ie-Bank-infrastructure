@@ -39,6 +39,8 @@ param appServiceAPIEnvVarDBPASS string
 param appServiceAPIDBHostDBUSER string
 @sys.description('The value for the environment variable FLASK_APP')
 param appServiceAPIDBHostFLASK_APP string
+@sys.description('The value for the environment variable FLASK_RUN_PORT')
+param appServiceAPIDBHostFLASK_RUN_PORT string
 @sys.description('The value for the environment variable FLASK_DEBUG')
 param appServiceAPIDBHostFLASK_DEBUG string
 
@@ -95,6 +97,7 @@ module appService 'modules/app-service.bicep' = {
     appServicePlanName: appServicePlanName
     appServiceAPIDBHostDBUSER: appServiceAPIDBHostDBUSER
     appServiceAPIDBHostFLASK_APP: appServiceAPIDBHostFLASK_APP
+    appServiceAPIDBHostFLASK_RUN_PORT: appServiceAPIDBHostFLASK_RUN_PORT
     appServiceAPIDBHostFLASK_DEBUG: appServiceAPIDBHostFLASK_DEBUG
     appServiceAPIEnvVarDBHOST: appServiceAPIEnvVarDBHOST
     appServiceAPIEnvVarDBNAME: appServiceAPIEnvVarDBNAME
