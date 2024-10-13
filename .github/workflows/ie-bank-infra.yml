@@ -69,3 +69,19 @@ jobs:
         template: ./main.bicep
         parameters: ./parameters/uat.parameters.json appServiceAPIEnvVarENV=${{ vars.ENV }} appServiceAPIEnvVarDBHOST=${{ vars.DBHOST }} appServiceAPIEnvVarDBNAME=${{ vars.DBNAME }} appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }} appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }} appServiceAPIDBHostFLASK_APP=${{ vars.FLASK_APP }} appServiceAPIDBHostFLASK_RUN_PORT=${{ vars.FLASK_RUN_PORT }} appServiceAPIDBHostFLASK_DEBUG=${{ vars.FLASK_DEBUG }}
         deploymentName: ${{ env.USER_ALIAS }}
+
+      # Set environment variables in Azure App Service
+    - name: Set environment variables in Azure App Service
+      run: |
+          az webapp config appsettings set --resource-group ${{ env.RESOURCE_GROUP_UAT }} --name ${{ vars.APP_SERVICE_NAME }} --settings \
+          ENV=${{ vars.ENV }} \
+          DBHOST=${{ vars.DBHOST }} \
+          DBNAME=${{ vars.DBNAME }} \
+          DBPASS=${{ secrets.DBPASS }} \
+          DBUSER=${{ secrets.DBUSER }} \
+          FLASK_APP=${{ vars.FLASK_APP }} \
+          FLASK_RUN_PORT=${{ vars.FLASK_RUN_PORT }} \
+          FLASK_DEBUG=${{ vars.FLASK_DEBUG }}
+      env:
+        DBPASS: ${{ secrets.DBPASS }}
+        DBUSER: ${{ secrets.DBUSER }}
