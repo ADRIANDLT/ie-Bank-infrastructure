@@ -9,6 +9,7 @@ param appServiceAPIEnvVarDBNAME string
 param appServiceAPIEnvVarDBPASS string
 param appServiceAPIDBHostDBUSER string
 param appServiceAPIDBHostFLASK_APP string
+param appServiceAPIDBHostFLASK_RUN_PORT string
 param appServiceAPIDBHostFLASK_DEBUG string
 @allowed([
   'nonprod'
@@ -64,6 +65,10 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
         {
           name: 'FLASK_APP'
           value: appServiceAPIDBHostFLASK_APP
+        }
+        {
+          name: 'FLASK_RUN_PORT'
+          value: appServiceAPIDBHostFLASK_RUN_PORT
         }
         {
           name: 'FLASK_DEBUG'
