@@ -1,4 +1,4 @@
-name: adelatorre-infra-uat
+name: ie-bank-infra
 
 on:
   workflow_dispatch:
