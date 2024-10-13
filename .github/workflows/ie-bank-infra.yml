@@ -39,6 +39,26 @@ jobs:
     - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+      # List Resource Groups
+
+    - name: List Resource Groups
+      run: az group list --subscription ${{ env.SUBSCRIPTION_ID_UAT }}
+
+      # Show environment variables and secrets
+    - name: Show environment variables and secrets
+      run: |
+        echo "ENV: ${{ vars.ENV }}"
+        echo "DBHOST: ${{ vars.DBHOST }}"
+        echo "DBNAME: ${{ vars.DBNAME }}"
+        echo "DBPASS: ${{ secrets.DBPASS }}"
+        echo "DBUSER: ${{ secrets.DBUSER }}"
+        echo "FLASK_APP: ${{ vars.FLASK_APP }}"
+        echo "FLASK_RUN_PORT: ${{ vars.FLASK_RUN_PORT }}"
+        echo "FLASK_DEBUG: ${{ vars.FLASK_DEBUG }}"
+      env:
+        DBPASS: ${{ secrets.DBPASS }}
+        DBUSER: ${{ secrets.DBUSER }}
 
       # Deploy Bicep file
     - name: deploy
