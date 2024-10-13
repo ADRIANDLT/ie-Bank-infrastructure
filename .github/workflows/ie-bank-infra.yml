@@ -3,11 +3,13 @@ name: ie-bank-infra
 on:
   workflow_dispatch:
   push:
-      paths:
-        - '!scripts/**'
+    branches-ignore:
+      - main  # Ignore pushes to the main branch for the Development environment
+    paths:
+      - '!scripts/**'
   pull_request:
     branches:
-      - main
+      - main  # Trigger on pull requests to the main branch
 
 env:
   RESOURCE_GROUP_DEV: BCSAI2024-DEVOPS-STUDENTS-B-DEV
