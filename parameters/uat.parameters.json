@@ -3,22 +3,22 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "environmentType": {
-            "value": "nonprod"
+            "value": "uat"
         },
         "postgreSQLServerName": {
-            "value": "jseijas-dbsrv-dev"
+            "value": "adelatorre-dbsrv-uat"
         },
         "postgreSQLDatabaseName": {
-            "value": "jseijas-db-dev"
+            "value": "adelatorre-db-uat"
         },
         "appServicePlanName": {
-            "value": "jseijas-asp-dev"
+            "value": "adelatorre-asp-uat"
         },
         "appServiceAPIAppName": {
-            "value": "jseijas-be-dev"
+            "value": "adelatorre-backend-uat"
         },
         "appServiceAppName": {
-            "value": "jseijas-fe-dev"
+            "value": "adelatorre-frontend-uat"
         },
         "location": {
             "value": "North Europe"
