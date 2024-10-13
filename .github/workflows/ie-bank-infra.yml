@@ -1,4 +1,4 @@
-name: ie-bank-infra
+name: adelatorre-infra-uat
 
 on:
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
       run: az bicep build --file ./main.bicep
 
   deploy-dev:
-#   if: github.ref == 'refs/heads/uat'
+#   if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build
     environment:
