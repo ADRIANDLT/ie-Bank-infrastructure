@@ -73,7 +73,7 @@ jobs:
       # Set environment variables in Azure App Service
     - name: Set environment variables in Azure App Service
       run: |
-          az webapp config appsettings set --resource-group ${{ env.RESOURCE_GROUP_UAT }} --name ${{ vars.APP_SERVICE_NAME }} --settings \
+          az webapp config appsettings set --resource-group ${{ env.RESOURCE_GROUP_UAT }} --name adelatorre-backend-uat --settings \
           ENV=${{ vars.ENV }} \
           DBHOST=${{ vars.DBHOST }} \
           DBNAME=${{ vars.DBNAME }} \
