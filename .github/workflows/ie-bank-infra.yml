@@ -23,7 +23,7 @@ jobs:
     - name: Run Bicep linter
       run: az bicep build --file ./main.bicep
 
-  deploy-dev:
+  deploy-uat:
 #   if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build
