@@ -3,8 +3,6 @@ name: ie-bank-infra
 on:
   workflow_dispatch:
   push:
-    branches:
-      - dev  # Trigger on pushes to the dev branch
     branches-ignore:
       - main  # Ignore pushes to the main branch for the Development environment
     paths:
