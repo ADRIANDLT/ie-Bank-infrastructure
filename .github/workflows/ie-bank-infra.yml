@@ -24,7 +24,7 @@ jobs:
     steps:
 
       # Checkout code
-    - uses: actions/checkout@main
+    - uses: actions/checkout@v2
 
       # Lint Bicep code 
     - name: Run Bicep linter
@@ -39,7 +39,7 @@ jobs:
     steps:
 
       # Checkout code
-    - uses: actions/checkout@main
+    - uses: actions/checkout@v2
     
       # Log into Azure
     - uses: azure/login@v2
