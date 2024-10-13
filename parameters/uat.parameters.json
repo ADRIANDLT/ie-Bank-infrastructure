@@ -1,0 +1,27 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "environmentType": {
+            "value": "nonprod"
+        },
+        "postgreSQLServerName": {
+            "value": "adelatorre-dbsrv-uat"
+        },
+        "postgreSQLDatabaseName": {
+            "value": "adelatorre-db-uat"
+        },
+        "appServicePlanName": {
+            "value": "adelatorre-asp-uat"
+        },
+        "appServiceAPIAppName": {
+            "value": "adelatorre-backend-uat"
+        },
+        "appServiceAppName": {
+            "value": "adelatorre-frontend-uat"
+        },
+        "location": {
+            "value": "North Europe"
+        }
+    }
+}
