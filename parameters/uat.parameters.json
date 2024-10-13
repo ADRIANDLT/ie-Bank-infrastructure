@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "environmentType": {
-            "value": "uat"
+            "value": "prod"
         },
         "postgreSQLServerName": {
             "value": "adelatorre-dbsrv-uat"
