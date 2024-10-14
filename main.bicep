@@ -1,9 +1,9 @@
-@sys.description('The environment type (nonprod or prod)')
-@allowed([
-  'nonprod'
-  'prod'
-])
-param environmentType string = 'nonprod'
+// @sys.description('The environment type (nonprod or prod)')
+// @allowed([
+//  'nonprod'
+//  'prod'
+// ])
+// param environmentType string = 'nonprod'
 
 @sys.description('The PostgreSQL Server name')
 @minLength(3)
