@@ -4,52 +4,78 @@
   'prod'
 ])
 param environmentType string = 'nonprod'
+
 @sys.description('The PostgreSQL Server name')
 @minLength(3)
 @maxLength(24)
 param postgreSQLServerName string = 'adelatorre-dbsrv-dev'
+
 @sys.description('The PostgreSQL Database name')
 @minLength(3)
 @maxLength(24)
 param postgreSQLDatabaseName string = 'adelatorre-db-dev'
+
 @sys.description('The App Service Plan name')
 @minLength(3)
 @maxLength(24)
 param appServicePlanName string = 'adelatorre-asp-dev'
+
 @sys.description('The Web App name (frontend)')
 @minLength(3)
 @maxLength(24)
 param appServiceAppName string = 'adelatorre-frontend-dev'
+
 @sys.description('The API App name (backend)')
 @minLength(3)
 @maxLength(24)
 param appServiceAPIAppName string = 'adelatorre-backend-dev'
+
 @sys.description('The Azure location where the resources will be deployed')
 param location string = resourceGroup().location
+
 @sys.description('The value for the environment variable ENV')
 param appServiceAPIEnvVarENV string
+
 @sys.description('The value for the environment variable DBHOST')
 param appServiceAPIEnvVarDBHOST string
+
 @sys.description('The value for the environment variable DBNAME')
 param appServiceAPIEnvVarDBNAME string
+
 @sys.description('The value for the environment variable DBPASS')
 @secure()
 param appServiceAPIEnvVarDBPASS string
+
 @sys.description('The value for the environment variable DBUSER')
 param appServiceAPIDBHostDBUSER string
+
 @sys.description('The value for the environment variable FLASK_APP')
 param appServiceAPIDBHostFLASK_APP string
+
 @sys.description('The value for the environment variable FLASK_RUN_PORT')
 param appServiceAPIDBHostFLASK_RUN_PORT string
+
 @sys.description('The value for the environment variable FLASK_DEBUG')
 param appServiceAPIDBHostFLASK_DEBUG string
+
+@sys.description('The SKU for the PostgreSQL server')
+param postgreSQLServerSkuName string = 'Standard_B1ms'
+
+@sys.description('The tier for the PostgreSQL server')
+param postgreSQLServerSkuTier string = 'Burstable'
+
+@sys.description('The SKU for the App Service Plan')
+param appServicePlanSkuName string = 'B1'
+
+@sys.description('The tier for the App Service Plan')
+param appServicePlanSkuTier string = 'Basic'
 
 resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01' = {
   name: postgreSQLServerName
   location: location
   sku: {
-    name: 'Standard_B1ms'
-    tier: 'Burstable'
+    name: postgreSQLServerSkuName
+    tier: postgreSQLServerSkuTier
   }
   properties: {
     administratorLogin: 'iebankdbadmin'
@@ -95,6 +121,8 @@ module appService 'modules/app-service.bicep' = {
     appServiceAppName: appServiceAppName
     appServiceAPIAppName: appServiceAPIAppName
     appServicePlanName: appServicePlanName
+    appServicePlanSkuName: appServicePlanSkuName
+    appServicePlanSkuTier: appServicePlanSkuTier
     appServiceAPIDBHostDBUSER: appServiceAPIDBHostDBUSER
     appServiceAPIDBHostFLASK_APP: appServiceAPIDBHostFLASK_APP
     appServiceAPIDBHostFLASK_RUN_PORT: appServiceAPIDBHostFLASK_RUN_PORT

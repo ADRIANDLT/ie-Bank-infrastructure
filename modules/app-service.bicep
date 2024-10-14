@@ -15,15 +15,20 @@ param appServiceAPIDBHostFLASK_DEBUG string
   'nonprod'
   'prod'
 ])
-param environmentType string
+param environmentType string // not used in this module
 
-var appServicePlanSkuName = (environmentType == 'prod') ? 'B1' : 'B1' //modify according to desired capacity
+@sys.description('The SKU for the App Service Plan')
+param appServicePlanSkuName string
+
+@sys.description('The tier for the App Service Plan')
+param appServicePlanSkuTier string
 
 resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
   name: appServicePlanName
   location: location
   sku: {
     name: appServicePlanSkuName
+    tier: appServicePlanSkuTier
   }
   kind: 'linux'
   properties: {
