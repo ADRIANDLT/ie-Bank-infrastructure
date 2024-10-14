@@ -22,6 +22,18 @@
         },
         "location": {
             "value": "North Europe"
+        },
+        "postgreSQLServerSkuName": {
+            "value": "Standard_B1ms"
+        },
+        "postgreSQLServerSkuTier": {
+            "value": "Burstable"
+        },
+        "appServicePlanSkuName": {
+            "value": "B1"
+        },
+        "appServicePlanSkuTier": {
+            "value": "Basic"
         }
     }
 }
