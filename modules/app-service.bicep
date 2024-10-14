@@ -15,7 +15,7 @@ param appServiceAPIDBHostFLASK_DEBUG string
   'nonprod'
   'prod'
 ])
-param environmentType string // not used in this module
+// param environmentType string // not used in this module
 
 @sys.description('The SKU for the App Service Plan')
 param appServicePlanSkuName string
