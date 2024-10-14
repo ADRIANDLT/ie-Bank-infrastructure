@@ -5,8 +5,7 @@ on:
   push:
     branches:
       - dev
-    paths:
-      - '!scripts/**'
+      - main
   pull_request:
     branches:
       - main  # Trigger on pull requests to the main branch
