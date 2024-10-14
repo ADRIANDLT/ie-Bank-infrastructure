@@ -11,10 +11,10 @@ param appServiceAPIDBHostDBUSER string
 param appServiceAPIDBHostFLASK_APP string
 param appServiceAPIDBHostFLASK_RUN_PORT string
 param appServiceAPIDBHostFLASK_DEBUG string
-@allowed([
-  'nonprod'
-  'prod'
-])
+// @allowed([
+//  'nonprod'
+//  'prod'
+// ])
 // param environmentType string // not used in this module
 
 @sys.description('The SKU for the App Service Plan')
