@@ -117,7 +117,7 @@ module appService 'modules/app-service.bicep' = {
   name: 'appService'
   params: {
     location: location
-    environmentType: environmentType
+    // environmentType: environmentType
     appServiceAppName: appServiceAppName
     appServiceAPIAppName: appServiceAPIAppName
     appServicePlanName: appServicePlanName
